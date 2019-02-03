@@ -23,7 +23,7 @@ public class Web {
 
   public void println(String s) throws IOException {
     PrintWriter out = context.getResponse().getWriter();
-    out.println("业务处理完毕的时间：" + new Date() + ".");
+    out.println("print时间：" + new Date() + ".");
     out.flush();
     writer.println(s);
   }

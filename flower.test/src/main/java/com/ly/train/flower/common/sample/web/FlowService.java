@@ -5,7 +5,7 @@ import com.ly.train.flower.common.service.web.Flush;
 import com.ly.train.flower.common.service.web.Last;
 import com.ly.train.flower.common.service.web.Web;
 
-public class FlowService implements HttpService, Last, Flush {
+public class FlowService implements HttpService {
 
   private ClassA ca;
 
@@ -22,9 +22,10 @@ public class FlowService implements HttpService, Last, Flush {
 
     web.println(message.toString());
     web.flush();
+    web.complete();
     Thread.sleep(5000);
 
-    System.out.println("FlowService processed "+message.toString());
+    System.out.println("FlowService processed " + message.toString());
     return "";
   }
 

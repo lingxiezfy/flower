@@ -3,17 +3,28 @@ package com.ly.train.flower.common.sample.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.UUID;
 
 import javax.servlet.AsyncContext;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ly.train.flower.common.actor.ServiceActor;
 import com.ly.train.flower.common.actor.ServiceFacade;
+import com.ly.train.flower.common.service.FlowContext;
+import com.ly.train.flower.common.service.ServiceContext;
 import com.ly.train.flower.common.service.ServiceFactory;
 import com.ly.train.flower.common.service.ServiceFlow;
+import com.ly.train.flower.common.service.web.Web;
 
+import akka.actor.ActorRef;
+import akka.actor.ActorSystem;
+import akka.actor.Props;
+
+@WebServlet(asyncSupported = true)
 public class FlowServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -26,10 +37,19 @@ public class FlowServlet extends HttpServlet {
     AsyncContext ctx = req.startAsync();
 
     // flower
-    asyncExe(ctx);
+//    asyncExe(ctx);
 
     // thread
-    // new Thread(new Executor(ctx)).start();
+    ServiceContext serviceContext = new ServiceContext();
+    Web web = new Web(ctx);
+    serviceContext.setWeb(web);
+    String uuid = UUID.randomUUID().toString();
+    FlowContext.putServiceContext(uuid, serviceContext);
+//    new Thread(new Executor(uuid)).start();
+    
+    
+    ActorRef actor = ActorSystem.create("sample").actorOf(Props.create(MyActor.class));
+    actor.tell(uuid, null);
 
     out.println("结束Servlet的时间：" + new Date() + ".");
     out.flush();
