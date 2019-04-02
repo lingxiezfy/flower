@@ -1,0 +1,3 @@
+service1 = com.ly.train.flower.base.service.ServiceA
+service2 = com.ly.train.flower.base.service.ServiceB
+service3 = com.ly.train.flower.base.service.ServiceC1
