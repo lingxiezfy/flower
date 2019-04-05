@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 import javax.servlet.AsyncContext;
 import com.ly.train.flower.common.service.container.ServiceContext;
+import com.ly.train.flower.common.util.Constant;
 import akka.actor.ActorRef;
 import akka.pattern.Patterns;
 import akka.util.Timeout;
@@ -33,12 +34,11 @@ public class ServiceRouter {
   private String serviceName;
 
   public ServiceRouter(String flowName, String serviceName, int number) {
-    this.number = number;
-    this.ar = new ActorRef[number];
-    this.serviceName = serviceName;
-    for (int i = 0; i < number; i++) {
-      this.ar[i] = ServiceActorFactory.buildServiceActor(flowName, serviceName, i);
+    if (number > 0) {
+      this.number = number;
     }
+    this.flowName = flowName;
+    this.serviceName = serviceName;
   }
 
   public void asyncCallService(Object message) throws IOException {
@@ -55,7 +55,7 @@ public class ServiceRouter {
   public <T> void asyncCallService(T message, AsyncContext ctx) throws IOException {
     ServiceContext serviceContext = ServiceContext.context(message, ctx);
     serviceContext.setFlowName(flowName);
-    this.ar[randomIndex()].tell(serviceContext, ActorRef.noSender());
+    chooseOne().tell(serviceContext, ActorRef.noSender());
   }
 
   /**
@@ -68,7 +68,7 @@ public class ServiceRouter {
   public Object syncCallService(Object message) throws Exception {
     ServiceContext serviceContext = ServiceContext.context(message);
     serviceContext.setSync(true);
-    return Await.result(Patterns.ask(ar[randomIndex()], serviceContext, new Timeout(ServiceFacade.duration)), ServiceFacade.duration);
+    return Await.result(Patterns.ask(chooseOne(), serviceContext, new Timeout(Constant.defaultTimeout_3S)), Constant.defaultTimeout_3S);
   }
 
   private int randomIndex() {
@@ -90,11 +90,25 @@ public class ServiceRouter {
     return currentIndex;
   }
 
+  private ActorRef chooseOne() {
+    int index = randomIndex();
+    if (ar == null || ar[index] == null) {
+      synchronized (this) {
+        if (ar == null) {
+          this.ar = new ActorRef[number];
+          for (int i = 0; i < number; i++) {
+            this.ar[i] = ServiceActorFactory.buildServiceActor(flowName, serviceName, i);
+          }
+        }
+      }
+    }
+    return ar[index];
+  }
 
   /**
    * 当actor个数为2^n个数时才可以使用
    * 
-   * @return int 
+   * @return int
    */
   protected int bitRandomIndex() {
     if (number == 1) {
