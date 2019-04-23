@@ -15,7 +15,7 @@
  */
 package com.ly.train.flower.common.akka;
 
-import java.io.IOException;
+import java.util.concurrent.TimeoutException;
 import javax.servlet.AsyncContext;
 import com.ly.train.flower.common.service.config.ServiceConfig;
 import com.ly.train.flower.common.service.container.AbstractInit;
@@ -33,18 +33,18 @@ import akka.actor.ActorRef;
  */
 public class FlowRouter extends AbstractInit {
   static final com.ly.train.flower.logging.Logger logger = LoggerFactory.getLogger(FlowRouter.class);
-  private int number = 2 << 6;
+  private int actorNumber = 2 << 6;
   private volatile ServiceRouter serviceRouter;
   private final ServiceConfig headerServiceConfig;
   private final String flowName;
   private ServiceFacade serviceFacade;
 
-  public FlowRouter(ServiceConfig headerServiceConfig, int number, FlowerFactory flowerFactory) {
+  public FlowRouter(ServiceConfig headerServiceConfig, int actorNumber, FlowerFactory flowerFactory) {
     this.flowName = headerServiceConfig.getFlowName();
     this.headerServiceConfig = headerServiceConfig;
     this.serviceFacade = flowerFactory.getServiceFacade();
-    if (number > 0) {
-      this.number = number;
+    if (actorNumber > 0) {
+      this.actorNumber = actorNumber;
     }
   }
 
@@ -62,7 +62,6 @@ public class FlowRouter extends AbstractInit {
    * 
    * @param message
    * @param ctx
-   * @throws IOException
    */
   public <T> void asyncCallService(T message, AsyncContext ctx) {
     ServiceContext serviceContext = null;
@@ -85,8 +84,9 @@ public class FlowRouter extends AbstractInit {
    * 
    * @param message message
    * @return obj
+   * @throws TimeoutException
    */
-  public Object syncCallService(Object message) {
+  public Object syncCallService(Object message) throws TimeoutException {
     ServiceContext serviceContext = ServiceContext.context(message);
     serviceContext.setFlowName(flowName);
     serviceContext.setCurrentServiceName(headerServiceConfig.getServiceName());
@@ -98,7 +98,7 @@ public class FlowRouter extends AbstractInit {
     if (serviceRouter == null) {
       synchronized (this) {
         if (serviceRouter == null) {
-          this.serviceRouter = serviceFacade.buildServiceRouter(headerServiceConfig, number);
+          this.serviceRouter = serviceFacade.buildServiceRouter(headerServiceConfig, actorNumber);
         }
       }
     }
@@ -109,7 +109,5 @@ public class FlowRouter extends AbstractInit {
   public ServiceConfig getServiceConfig() {
     return headerServiceConfig;
   }
-
-
 
 }
