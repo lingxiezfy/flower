@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * @author: fengyu.zhang
@@ -39,18 +40,28 @@ public class AggregateController extends FlowerController {
     @Override
     public void buildFlower() {
         // 第一个分叉
-        getServiceFlow().buildFlow(ServiceBegin.class, ServiceForkA1.class);
-        getServiceFlow().buildFlow(ServiceBegin.class, ServiceForkA2.class);
-        getServiceFlow().buildFlow(ServiceBegin.class, ServiceForkA3.class);
-        getServiceFlow().buildFlow(ServiceForkA1.class, ServiceReceiveA.class);
-        getServiceFlow().buildFlow(ServiceForkA2.class, ServiceReceiveA.class);
-        getServiceFlow().buildFlow(ServiceForkA3.class, ServiceReceiveA.class);
+
+        // 可替代代码
+//        getServiceFlow().buildFlow(ServiceBegin.class, ServiceForkA1.class);
+//        getServiceFlow().buildFlow(ServiceBegin.class, ServiceForkA2.class);
+//        getServiceFlow().buildFlow(ServiceBegin.class, ServiceForkA3.class);
+        getServiceFlow().buildFlow(ServiceBegin.class,Arrays.asList(ServiceForkA1.class,ServiceForkA2.class,ServiceForkA3.class));
+        // 可替代代码
+//        getServiceFlow().buildFlow(ServiceForkA1.class, ServiceReceiveA.class);
+//        getServiceFlow().buildFlow(ServiceForkA2.class, ServiceReceiveA.class);
+//        getServiceFlow().buildFlow(ServiceForkA3.class, ServiceReceiveA.class);
+        getServiceFlow().buildFlow(Arrays.asList(ServiceForkA1.class,ServiceForkA2.class,ServiceForkA3.class),ServiceReceiveA.class);
+
         // 第二个分叉
-        getServiceFlow().buildFlow(ServiceReceiveA.class, ServiceForkB1.class);
-        getServiceFlow().buildFlow(ServiceReceiveA.class, ServiceForkB2.class);
-        getServiceFlow().buildFlow(ServiceReceiveA.class, ServiceReceiveAB.class);
-        getServiceFlow().buildFlow(ServiceForkB1.class, ServiceReceiveAB.class);
-        getServiceFlow().buildFlow(ServiceForkB2.class, ServiceReceiveAB.class);
-        getServiceFlow().build();
+//        getServiceFlow().buildFlow(ServiceReceiveA.class, ServiceForkB1.class);
+//        getServiceFlow().buildFlow(ServiceReceiveA.class, ServiceForkB2.class);
+//        getServiceFlow().buildFlow(ServiceReceiveA.class, ServiceReceiveAB.class);
+        getServiceFlow().buildFlow(ServiceReceiveA.class, Arrays.asList(ServiceForkB1.class,ServiceForkB2.class,ServiceReceiveAB.class));
+//        getServiceFlow().buildFlow(ServiceForkB1.class, ServiceReceiveAB.class);
+//        getServiceFlow().buildFlow(ServiceForkB2.class, ServiceReceiveAB.class);
+        getServiceFlow().buildFlow(Arrays.asList(ServiceForkB1.class,ServiceForkB2.class), ServiceReceiveAB.class);
+
+        // build 方法会影响flowNumber的数量设置，先取消
+//        getServiceFlow().build();
     }
 }

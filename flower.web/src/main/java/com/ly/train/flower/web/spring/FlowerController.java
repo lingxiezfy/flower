@@ -18,17 +18,19 @@
  */
 package com.ly.train.flower.web.spring;
 
-import java.io.IOException;
-import javax.servlet.AsyncContext;
-import javax.servlet.http.HttpServletRequest;
-import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Autowired;
 import com.ly.train.flower.common.akka.FlowRouter;
+import com.ly.train.flower.common.akka.ServiceFacade;
 import com.ly.train.flower.common.annotation.Flower;
 import com.ly.train.flower.common.service.container.FlowerFactory;
 import com.ly.train.flower.common.service.container.ServiceFlow;
 import com.ly.train.flower.logging.Logger;
 import com.ly.train.flower.logging.LoggerFactory;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.servlet.AsyncContext;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 
 /**
  * 
@@ -63,7 +65,7 @@ public abstract class FlowerController implements InitializingBean {
   /**
    * 初始化路由
    * 
-   * @see com.ly.train.flower.common.actor.ServiceFacade#buildFlowRouter
+   * @see ServiceFacade#buildFlowRouter(java.lang.String, int)
    * @return {@code ServiceRouter}
    */
   private FlowRouter initFlowRouter() {
