@@ -35,14 +35,16 @@ import com.ly.train.flower.registry.config.ServiceInfo;
 
 /**
  * @author leeyazhou
- *
+ * 
  */
 public abstract class AbstractRegistry implements Registry {
   protected final Logger logger = LoggerFactory.getLogger(getClass());
   protected final ConcurrentMap<String, ServiceInfo> serviceInfoCache = new ConcurrentHashMap<>();
   protected final ConcurrentMap<String, ServiceConfig> serviceConfigCache = new ConcurrentHashMap<>();
-  private static final ScheduledExecutorService executorService =
-      Executors.newSingleThreadScheduledExecutor(new NamedThreadFactory("registry"));
+  private static final ScheduledExecutorService executorService = Executors
+      .newSingleThreadScheduledExecutor(new NamedThreadFactory("registry"));
+
+  protected final String root = "flower";
   protected final URL url;
 
   public AbstractRegistry(URL url) {

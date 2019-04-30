@@ -18,14 +18,14 @@ package com.ly.train.flower.common.service.container;
 import java.io.Serializable;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import com.ly.train.flower.common.akka.actor.message.Message;
 import com.ly.train.flower.common.serializer.Codec;
-import com.ly.train.flower.common.serializer.util.CodecUtil;
 import com.ly.train.flower.common.service.message.FlowMessage;
 import com.ly.train.flower.common.service.web.Web;
 import com.ly.train.flower.common.util.CloneUtil;
 import com.ly.train.flower.common.util.StringUtil;
 
-public class ServiceContext implements Serializable {
+public class ServiceContext implements Message, Serializable {
 
   private static final long serialVersionUID = 1L;
   /**
@@ -51,7 +51,7 @@ public class ServiceContext implements Serializable {
     ServiceContext context = new ServiceContext();
     FlowMessage flowMessage = new FlowMessage();
     if (message != null) {
-      Codec codec = CodecUtil.getInstance().getCodec(message.getClass().getName());
+      Codec codec = Codec.Hessian;
       flowMessage.setMessageType(message.getClass().getName());
       flowMessage.setMessage(codec.encode(message));
       flowMessage.setCodec(codec.getCode());
@@ -97,6 +97,9 @@ public class ServiceContext implements Serializable {
   }
 
   public Object getAttachment(String key) {
+    if (attachments == null) {
+      return null;
+    }
     return attachments.get(key);
   }
 
@@ -115,7 +118,7 @@ public class ServiceContext implements Serializable {
     this.flowMessage = flowMessage;
   }
 
-  
+
   /**
    * 服务ID
    * 

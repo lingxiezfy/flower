@@ -15,9 +15,9 @@
  */
 package com.ly.train.flower.common.service.message;
 
-import java.io.Serializable;
+import com.ly.train.flower.common.akka.actor.message.Message;
 
-public class DefaultMessage implements Serializable {
+public class DefaultMessage implements Message {
   private static final long serialVersionUID = 1L;
 
   private DefaultMessage() {}
