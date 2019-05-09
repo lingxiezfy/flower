@@ -21,9 +21,6 @@ import java.io.StringWriter;
 import com.ly.train.flower.logging.Logger;
 import com.ly.train.flower.logging.LoggerFactory;
 
-/**
- * @author lee
- */
 public class ExceptionUtil {
 
   private static final Logger logger = LoggerFactory.getLogger(ExceptionUtil.class);

@@ -18,10 +18,6 @@
  */
 package com.ly.train.flower.center.model;
 
-/**
- * @author leeyazhou
- * 
- */
 public class Response<T> {
 
   private int code = 0;

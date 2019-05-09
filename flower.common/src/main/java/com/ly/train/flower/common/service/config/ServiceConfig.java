@@ -26,8 +26,6 @@ import com.ly.train.flower.common.util.URL;
 /**
  * 流程服务节点配置
  * 
- * @author leeyazhou
- * 
  */
 public class ServiceConfig implements Serializable {
 

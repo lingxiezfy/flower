@@ -19,10 +19,6 @@ import com.ly.train.flower.registry.redis.util.command.RedisCommand;
 import com.ly.train.flower.registry.redis.util.command.string.StringSetexCommand;
 import com.ly.train.flower.registry.redis.util.command.string.StringSetnxCommand;
 
-/**
- * @author leeyazhou
- * 
- */
 public class RedisClient {
 
   private RedisManager redisManager;

@@ -23,10 +23,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ly.train.flower.center.model.Response;
 import com.ly.train.flower.center.util.R;
 
-/**
- * @author leeyazhou
- * 
- */
 @RestController
 public class IndexController {
 

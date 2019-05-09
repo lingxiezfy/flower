@@ -21,10 +21,6 @@ import com.ly.train.flower.common.service.container.ServiceContext;
 import com.ly.train.flower.logging.Logger;
 import com.ly.train.flower.logging.LoggerFactory;
 
-/**
- * @author leeyazhou
- * 
- */
 public abstract class AbstractLoadBalance implements LoadBalance {
   protected final Logger logger = LoggerFactory.getLogger(getClass());
 

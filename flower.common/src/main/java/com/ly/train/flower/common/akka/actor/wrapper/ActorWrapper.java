@@ -18,10 +18,6 @@ package com.ly.train.flower.common.akka.actor.wrapper;
 import com.ly.train.flower.common.akka.actor.message.Message;
 import akka.actor.ActorRef;
 
-/**
- * @author leeyazhou
- * 
- */
 public interface ActorWrapper {
 
   String getServiceName();

@@ -32,10 +32,6 @@ import com.ly.train.flower.common.annotation.SPI;
 import com.ly.train.flower.logging.Logger;
 import com.ly.train.flower.logging.LoggerFactory;
 
-/**
- * @author leeyazhou
- * 
- */
 public class ExtensionLoader<T> {
 
 

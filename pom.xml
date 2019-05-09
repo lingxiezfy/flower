@@ -39,6 +39,7 @@
         <module>flower.assembly</module>
         <module>flower.bom</module>
         <module>flower.container</module>
+        <module>fy.sample</module>
     </modules>
     <scm>
         <connection>scm:git:git@github.com:${github.org}/${github.repo}.git</connection>
@@ -82,6 +83,7 @@
         <mybatis.version>3.5.0</mybatis.version>
         <mysql.version>8.0.15</mysql.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.encoding>UTF-8</project.encoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <protostuff.version>1.5.2</protostuff.version>

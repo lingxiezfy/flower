@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fy.flower.sample.dao.CourseDao">
+    <select id="getByStudentId" parameterType="int" resultType="com.fy.flower.sample.model.Course">
+SELECT course.* FROM (SELECT * FROM student_course WHERE studentId = #{id}) s LEFT JOIN course ON s.courseId=course.id
+    </select>
+</mapper>

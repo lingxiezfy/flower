@@ -18,10 +18,6 @@
  */
 package com.ly.train.flower.common.annotation;
 
-/**
- * @author leeyazhou
- * 
- */
 public enum FlowerType {
 
   /**

@@ -22,10 +22,6 @@ import com.ly.train.flower.common.akka.actor.wrapper.ActorWrapper;
 import com.ly.train.flower.common.service.container.ServiceContext;
 import com.ly.train.flower.common.util.AtomicPositiveInteger;
 
-/**
- * @author leeyazhou
- * 
- */
 public class RoundLoadBalance extends AbstractLoadBalance {
   private static final String name = "RoundLoadBalance";
 

@@ -15,9 +15,6 @@
  */
 package com.ly.train.flower.common.akka.actor.command;
 
-/**
- * @author leeyazhou
- */
 public class GetContextCommand implements Command {
 
   private static final long serialVersionUID = 1L;

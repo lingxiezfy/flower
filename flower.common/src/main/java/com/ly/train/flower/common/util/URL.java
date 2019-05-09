@@ -19,10 +19,6 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author leeyazhou
- * 
- */
 public class URL implements Serializable {
 
   private static final long serialVersionUID = 1L;

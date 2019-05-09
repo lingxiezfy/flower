@@ -34,11 +34,6 @@ import org.springframework.core.env.Environment;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.util.Assert;
 
-/**
- * 
- * @author leeyazhou
- * 
- */
 public class FlowerClassPathBeanDefinitionScanner extends ClassPathBeanDefinitionScanner {
 
   private BeanNameGenerator beanNameGenerator = new AnnotationBeanNameGenerator();

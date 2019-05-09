@@ -24,11 +24,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * 
- * @author leeyazhou
- * 
- */
 public class CloneUtil {
   /**
    * 无需进行复制的特殊类型数组

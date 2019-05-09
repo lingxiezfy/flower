@@ -23,10 +23,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.ly.train.flower.container.loader.BootstrapClassLoader;
 
-/**
- * @author leeyazhou
- * 
- */
 public abstract class Bootstrap {
 
   private static final Logger logger = LoggerFactory.getLogger(Bootstrap.class);

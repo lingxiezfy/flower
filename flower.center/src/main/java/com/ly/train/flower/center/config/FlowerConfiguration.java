@@ -20,10 +20,6 @@ import org.springframework.context.annotation.Configuration;
 import com.ly.train.flower.common.service.container.FlowerFactory;
 import com.ly.train.flower.service.container.SpringFlowerFactory;
 
-/**
- * @author leeyazhou
- * 
- */
 @Configuration
 public class FlowerConfiguration {
 

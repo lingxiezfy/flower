@@ -26,10 +26,6 @@ import java.util.Set;
 import com.ly.train.flower.common.service.container.ServiceMeta;
 import com.ly.train.flower.common.util.URL;
 
-/**
- * @author leeyazhou
- * 
- */
 public class ServiceInfo implements Serializable {
 
   private static final long serialVersionUID = 1L;

@@ -20,10 +20,6 @@ package com.ly.train.flower.common.util;
 
 import com.ly.train.flower.common.annotation.FlowerService;
 
-/**
- * @author leeyazhou
- * 
- */
 public class AnnotationUtil {
 
   public static String getFlowerServiceValue(Class<?> flowServiceClass) {

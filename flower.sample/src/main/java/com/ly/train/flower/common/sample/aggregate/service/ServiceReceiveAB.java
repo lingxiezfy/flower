@@ -36,6 +36,7 @@ public class ServiceReceiveAB implements Service<Object, Void>, Flush, Complete 
     for (Integer integer : list) {
       System.out.println(integer);
     }
+    context.getWeb().printJSON("{\"isSuccess\":true}");
     return null;
   }
 }

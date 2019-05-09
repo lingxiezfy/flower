@@ -27,9 +27,6 @@ import com.ly.train.flower.common.util.IOUtil;
 import com.ly.train.flower.logging.Logger;
 import com.ly.train.flower.logging.LoggerFactory;
 
-/**
- * @author lee
- */
 public class HessianSerializer implements Serializer {
   static final Logger logger = LoggerFactory.getLogger(HessianSerializer.class);
   private final SerializerFactory factory = new SerializerFactory();

@@ -23,10 +23,6 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
-/**
- * @author leeyazhou
- * 
- */
 public class RedisManager {
   private static final Logger logger = LoggerFactory.getLogger(RedisManager.class);
   private JedisPool jedisPool;

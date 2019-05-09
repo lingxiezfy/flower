@@ -25,10 +25,6 @@ import org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostP
 import org.springframework.beans.factory.support.RootBeanDefinition;
 import com.ly.train.flower.common.annotation.FlowerService;
 
-/**
- * @author leeyazhou
- * 
- */
 public class FlowerAnnotationBeanPostProcessor extends AutowiredAnnotationBeanPostProcessor {
 
 

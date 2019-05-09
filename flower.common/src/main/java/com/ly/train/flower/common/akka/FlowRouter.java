@@ -27,10 +27,6 @@ import com.ly.train.flower.common.util.StringUtil;
 import com.ly.train.flower.logging.LoggerFactory;
 import akka.actor.ActorRef;
 
-/**
- * @author leeyazhou
- * 
- */
 public class FlowRouter extends AbstractInit {
   static final com.ly.train.flower.logging.Logger logger = LoggerFactory.getLogger(FlowRouter.class);
   private int flowerNumber = 2 << 6;

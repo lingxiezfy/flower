@@ -24,10 +24,6 @@ import com.ly.train.flower.logging.Logger;
 import com.ly.train.flower.logging.LoggerFactory;
 import com.ly.train.flower.web.spring.FlowerController;
 
-/**
- * @author leeyazhou
- * 
- */
 public abstract class BaseController extends FlowerController {
   protected final Logger logger = LoggerFactory.getLogger(getClass());
 

@@ -20,10 +20,6 @@ import java.util.concurrent.ConcurrentMap;
 import com.ly.train.flower.logging.Logger;
 import com.ly.train.flower.logging.LoggerFactory;
 
-/**
- * @author leeyazhou
- * 
- */
 public class ClassUtil {
   private static final Logger logger = LoggerFactory.getLogger(ClassUtil.class);
   private static final ConcurrentMap<String, ClassWrapper> cache = new ConcurrentHashMap<String, ClassWrapper>();

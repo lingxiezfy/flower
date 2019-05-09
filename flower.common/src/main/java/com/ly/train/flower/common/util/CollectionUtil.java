@@ -29,10 +29,6 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.SortedSet;
 
-/**
- * @author leeyazhou
- * 
- */
 public class CollectionUtil {
 
   public static boolean isEmpty(Collection<?> collection) {

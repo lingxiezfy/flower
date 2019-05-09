@@ -20,7 +20,6 @@ import java.io.Serializable;
 /**
  * 通过akka传递的消息需要实现Message接口
  * 
- * @author leeyazhou
  */
 public interface Message extends Serializable {
 

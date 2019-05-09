@@ -29,10 +29,6 @@ import com.ly.train.flower.center.service.ServiceInfoListService;
 import com.ly.train.flower.common.annotation.Flower;
 import com.ly.train.flower.registry.config.ServiceInfo;
 
-/**
- * @author leeyazhou
- * 
- */
 @RestController
 @RequestMapping("/service/")
 @Flower(value = "listServiceInfo")

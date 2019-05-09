@@ -24,10 +24,6 @@ import java.util.Map;
 import com.ly.train.flower.common.util.StringUtil;
 import com.ly.train.flower.common.util.URL;
 
-/**
- * @author leeyazhou
- * 
- */
 public class RegistryConfig implements Serializable {
 
   private static final long serialVersionUID = 6969058141359967490L;

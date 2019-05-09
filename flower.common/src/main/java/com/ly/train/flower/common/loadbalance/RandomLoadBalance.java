@@ -20,10 +20,6 @@ import java.util.concurrent.ThreadLocalRandom;
 import com.ly.train.flower.common.akka.actor.wrapper.ActorWrapper;
 import com.ly.train.flower.common.service.container.ServiceContext;
 
-/**
- * @author leeyazhou
- * 
- */
 public class RandomLoadBalance extends AbstractLoadBalance {
   private static final String name = "RandomLoadBalance";
   private ThreadLocalRandom random = ThreadLocalRandom.current();

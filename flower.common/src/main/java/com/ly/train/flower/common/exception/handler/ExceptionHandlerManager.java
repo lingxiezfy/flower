@@ -19,9 +19,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import com.ly.train.flower.common.util.Assert;
 
-/**
- * @author leeyazhou
- */
 public class ExceptionHandlerManager {
   private static final ExceptionHandlerManager instance = new ExceptionHandlerManager();
 

@@ -17,10 +17,6 @@ package com.ly.train.flower.registry.redis.util.command;
 
 import redis.clients.jedis.Jedis;
 
-/**
- * @author leeyazhou
- * 
- */
 public interface RedisCommand<T> {
 
   /**

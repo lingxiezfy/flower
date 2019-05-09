@@ -19,10 +19,6 @@ import com.ly.train.flower.common.serializer.hessian.HessianSerializer;
 import com.ly.train.flower.common.serializer.jdk.JdkSerializer;
 import com.ly.train.flower.common.serializer.kryo.KryoSerializer;
 
-/**
- * @author leeyazhou
- * 
- */
 public enum Codec {
 
   /**

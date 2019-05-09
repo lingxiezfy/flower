@@ -22,10 +22,6 @@ import java.util.concurrent.TimeUnit;
 import scala.concurrent.duration.Duration;
 import scala.concurrent.duration.FiniteDuration;
 
-/**
- * @author leeyazhou
- * 
- */
 public class Constant {
 
   public static final String ENCODING_UTF_8 = "UTF-8";

@@ -18,10 +18,6 @@ package com.ly.train.flower.common.service.container.lifecyle;
 import java.util.concurrent.atomic.AtomicBoolean;
 import com.ly.train.flower.common.service.container.AbstractInit;
 
-/**
- * @author leeyazhou
- * 
- */
 public abstract class AbstractLifecycle extends AbstractInit implements Lifecycle {
 
   private AtomicBoolean running = new AtomicBoolean();

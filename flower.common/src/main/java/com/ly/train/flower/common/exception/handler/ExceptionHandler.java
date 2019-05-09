@@ -17,9 +17,6 @@ package com.ly.train.flower.common.exception.handler;
 
 import com.ly.train.flower.common.service.container.ServiceContext;
 
-/**
- * @author leeyazhou
- */
 public interface ExceptionHandler {
 
   /**

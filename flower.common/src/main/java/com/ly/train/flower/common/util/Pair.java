@@ -23,8 +23,6 @@ import java.io.Serializable;
 /**
  * 键值对组
  * 
- * @author leeyazhou
- * 
  */
 public class Pair<K, V> implements Serializable {
 

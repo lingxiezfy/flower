@@ -25,10 +25,6 @@ import com.ly.train.flower.common.service.Service;
 import com.ly.train.flower.common.service.container.ServiceContext;
 import com.ly.train.flower.registry.config.ServiceInfo;
 
-/**
- * @author leeyazhou
- * 
- */
 @FlowerService
 public class ServiceInfoRegisterService implements Service<ServiceInfo, Boolean> {
 

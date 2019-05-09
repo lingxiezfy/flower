@@ -21,10 +21,6 @@ package com.ly.train.flower.logging.slf4j;
 import org.slf4j.Marker;
 import com.ly.train.flower.logging.Logger;
 
-/**
- * @author leeyazhou
- * 
- */
 public class Slf4jImpl implements Logger {
   private org.slf4j.Logger logger;
 

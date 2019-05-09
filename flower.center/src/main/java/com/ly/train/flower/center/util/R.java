@@ -20,10 +20,6 @@ package com.ly.train.flower.center.util;
 
 import com.ly.train.flower.center.model.Response;
 
-/**
- * @author leeyazhou
- * 
- */
 public class R {
 
   public static <T> Response<T> ok(T data) {

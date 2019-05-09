@@ -29,10 +29,6 @@ import com.ly.train.flower.center.service.ServiceConfigListService;
 import com.ly.train.flower.common.annotation.Flower;
 import com.ly.train.flower.common.service.config.ServiceConfig;
 
-/**
- * @author leeyazhou
- * 
- */
 @RestController
 @RequestMapping("/serviceconfig/")
 @Flower(serviceName = "ServiceA", value = "ServiceA", flowNumber = 32)

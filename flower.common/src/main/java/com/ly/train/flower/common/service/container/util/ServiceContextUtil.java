@@ -21,10 +21,6 @@ import com.ly.train.flower.common.service.web.Web;
 import com.ly.train.flower.common.util.cache.Cache;
 import com.ly.train.flower.common.util.cache.CacheManager;
 
-/**
- * @author leeyazhou
- * 
- */
 public class ServiceContextUtil {
 
   private ServiceContextUtil() {}

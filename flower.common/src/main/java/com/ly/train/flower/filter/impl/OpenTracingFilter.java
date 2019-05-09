@@ -39,10 +39,6 @@ import zipkin2.reporter.AsyncReporter;
 import zipkin2.reporter.Reporter;
 import zipkin2.reporter.okhttp3.OkHttpSender;
 
-/**
- * @author leeyazhou
- * 
- */
 public class OpenTracingFilter extends AbstractFilter<Object, Object> {
 
   private static final String endpoint = "http://10.100.216.147:9411/api/v2/spans";

@@ -29,10 +29,6 @@ import com.ly.train.flower.common.util.cache.Cache;
 import com.ly.train.flower.common.util.cache.CacheManager;
 import com.ly.train.flower.registry.config.ServiceInfo;
 
-/**
- * @author leeyazhou
- * 
- */
 @Service
 public class ServiceManager {
   static final Logger logger = LoggerFactory.getLogger(ServiceManager.class);

@@ -21,11 +21,6 @@ import java.util.List;
 import java.util.StringTokenizer;
 import java.util.UUID;
 
-/**
- * 
- * @author leeyazhou
- * 
- */
 public final class StringUtil {
   private StringUtil() {
 

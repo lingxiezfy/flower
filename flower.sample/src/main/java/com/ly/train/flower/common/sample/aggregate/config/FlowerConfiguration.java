@@ -29,6 +29,9 @@ public class FlowerConfiguration {
 
   @Bean
   public FlowerFactory flowerFactory() {
-    return new SpringFlowerFactory();
+
+    return new SpringFlowerFactory("conf/aggregate_flower_instance.yml");
+//      return new SpringFlowerFactory();
+
   }
 }

@@ -17,9 +17,6 @@ package com.ly.train.flower.common.akka.actor.command;
 
 import com.ly.train.flower.common.akka.actor.message.Message;
 
-/**
- * @author leeyazhou
- */
 public interface Command extends Message {
 
   CommandType getCommandType();

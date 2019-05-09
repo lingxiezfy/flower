@@ -52,10 +52,6 @@ import com.ly.train.flower.common.bytecode.ClassGenerator;
 import com.ly.train.flower.common.service.container.FlowerFactory;
 import com.ly.train.flower.web.springboot.annotation.BindController;
 
-/**
- * @author leeyazhou
- * 
- */
 public class FlowerBeanRegistryPostProcessor implements BeanDefinitionRegistryPostProcessor, EnvironmentAware,
     ResourceLoaderAware, BeanClassLoaderAware, ApplicationContextAware, InitializingBean {
   static final Logger logger = LoggerFactory.getLogger(FlowerBeanRegistryPostProcessor.class);

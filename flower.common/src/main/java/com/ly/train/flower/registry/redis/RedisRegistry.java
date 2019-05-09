@@ -27,10 +27,6 @@ import com.ly.train.flower.registry.config.ServiceInfo;
 import com.ly.train.flower.registry.redis.util.RedisClient;
 import com.ly.train.flower.registry.redis.util.RedisManager;
 
-/**
- * @author leeyazhou
- * 
- */
 public class RedisRegistry extends AbstractRegistry {
 
   private final String providerKeyFormatter = root + ":%s:providers:%s";

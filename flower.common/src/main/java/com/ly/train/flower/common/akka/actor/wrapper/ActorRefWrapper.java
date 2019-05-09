@@ -20,10 +20,6 @@ import com.ly.train.flower.logging.Logger;
 import com.ly.train.flower.logging.LoggerFactory;
 import akka.actor.ActorRef;
 
-/**
- * @author leeyazhou
- * 
- */
 public class ActorRefWrapper implements ActorWrapper {
   private static final Logger logger = LoggerFactory.getLogger(ActorRefWrapper.class);
   private String serviceName;

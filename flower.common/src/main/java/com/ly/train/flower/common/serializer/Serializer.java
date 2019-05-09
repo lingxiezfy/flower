@@ -17,10 +17,6 @@ package com.ly.train.flower.common.serializer;
 
 import com.ly.train.flower.common.annotation.SPI;
 
-/**
- * @author leeyazhou
- * 
- */
 @SPI(value = "protostuff")
 public interface Serializer {
 

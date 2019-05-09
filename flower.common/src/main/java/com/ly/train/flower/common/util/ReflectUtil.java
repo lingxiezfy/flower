@@ -22,10 +22,6 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import javassist.NotFoundException;
 
-/**
- * @author leeyazhou
- * 
- */
 public class ReflectUtil {
   /**
    * void(V).

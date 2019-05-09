@@ -17,9 +17,6 @@ package com.ly.train.flower.common.akka.actor.command;
 
 import java.io.Serializable;
 
-/**
- * @author leeyazhou
- */
 public class CreateCommand implements Command, Serializable {
 
   private static final long serialVersionUID = 1L;

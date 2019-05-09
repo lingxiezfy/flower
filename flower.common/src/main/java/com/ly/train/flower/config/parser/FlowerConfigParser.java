@@ -27,7 +27,6 @@ import com.ly.train.flower.config.FlowerConfig;
 import com.ly.train.flower.logging.Logger;
 import com.ly.train.flower.logging.LoggerFactory;
 
-/** @author leeyazhou */
 public class FlowerConfigParser implements ConfigParser<FlowerConfig> {
   private static final Logger logger = LoggerFactory.getLogger(FlowerConfigParser.class);
   private static final String defaultConfigLocation = "flower.yml";

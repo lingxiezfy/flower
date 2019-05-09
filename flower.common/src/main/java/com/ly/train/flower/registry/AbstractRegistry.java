@@ -33,10 +33,6 @@ import com.ly.train.flower.logging.Logger;
 import com.ly.train.flower.logging.LoggerFactory;
 import com.ly.train.flower.registry.config.ServiceInfo;
 
-/**
- * @author leeyazhou
- * 
- */
 public abstract class AbstractRegistry implements Registry {
   protected final Logger logger = LoggerFactory.getLogger(getClass());
   protected final ConcurrentMap<String, ServiceInfo> serviceInfoCache = new ConcurrentHashMap<>();

@@ -52,7 +52,6 @@ import akka.actor.Props;
 /**
  * Wrap service by actor, make service driven by message.
  * 
- * @author zhihui.li
  * 
  */
 public class ServiceActor extends AbstractFlowerActor {

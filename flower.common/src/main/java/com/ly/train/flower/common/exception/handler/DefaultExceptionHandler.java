@@ -22,10 +22,6 @@ import com.ly.train.flower.common.service.container.ServiceContext;
 import com.ly.train.flower.logging.Logger;
 import com.ly.train.flower.logging.LoggerFactory;
 
-/**
- * @author leeyazhou
- * 
- */
 public class DefaultExceptionHandler implements ExceptionHandler {
   protected static final Logger logger = LoggerFactory.getLogger(DefaultExceptionHandler.class);
 

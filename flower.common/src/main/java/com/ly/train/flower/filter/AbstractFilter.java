@@ -23,10 +23,6 @@ import com.ly.train.flower.common.service.impl.AbstractService;
 import com.ly.train.flower.logging.Logger;
 import com.ly.train.flower.logging.LoggerFactory;
 
-/**
- * @author leeyazhou
- * 
- */
 public abstract class AbstractFilter<P, R> extends AbstractService<P, R> implements Filter<P, R> {
   protected final Logger logger = LoggerFactory.getLogger(getClass());
   private Filter<P, R> nextFilter;

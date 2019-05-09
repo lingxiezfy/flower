@@ -21,10 +21,6 @@ import com.ly.train.flower.common.serializer.Codec;
 import akka.actor.Extension;
 import akka.serialization.JSerializer;
 
-/**
- * @author leeyazhou
- * 
- */
 public class HessianSerializer extends JSerializer implements Extension {
   static final Logger logger = LoggerFactory.getLogger(HessianSerializer.class);
 

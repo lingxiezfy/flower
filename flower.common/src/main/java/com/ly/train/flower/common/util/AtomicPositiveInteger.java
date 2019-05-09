@@ -17,9 +17,6 @@ package com.ly.train.flower.common.util;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-/**
- * @author lee
- */
 public class AtomicPositiveInteger extends Number {
 
   private static final long serialVersionUID = 4447595464037944629L;

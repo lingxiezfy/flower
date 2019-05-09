@@ -24,10 +24,6 @@ import com.ly.train.flower.common.util.URL;
 import com.ly.train.flower.registry.AbstractRegistry;
 import com.ly.train.flower.registry.config.ServiceInfo;
 
-/**
- * @author leeyazhou
- * 
- */
 public class ZookeeperRegistry extends AbstractRegistry {
 
 

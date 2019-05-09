@@ -15,9 +15,6 @@
  */
 package com.ly.train.flower.common.akka.actor.command;
 
-/**
- * @author leeyazhou
- */
 public enum CommandType {
 
   /**

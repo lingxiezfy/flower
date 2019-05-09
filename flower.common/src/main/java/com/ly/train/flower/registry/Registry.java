@@ -23,10 +23,6 @@ import com.ly.train.flower.common.service.config.ServiceConfig;
 import com.ly.train.flower.common.util.URL;
 import com.ly.train.flower.registry.config.ServiceInfo;
 
-/**
- * @author leeyazhou
- * 
- */
 public interface Registry {
 
   /**

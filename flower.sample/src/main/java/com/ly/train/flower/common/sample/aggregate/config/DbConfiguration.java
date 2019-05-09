@@ -37,7 +37,7 @@ public class DbConfiguration {
     DruidDataSource dataSource = new DruidDataSource();
     dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
     dataSource.setUrl("jdbc:mysql://localhost:3306/flower?characterEncoding=UTF-8&serverTimezone=GMT%2B8");
-    dataSource.setUsername("root");
+    dataSource.setUsername("flower");
     dataSource.setPassword("flower123");
     dataSource.setInitialSize(5);
     dataSource.setMaxActive(30);

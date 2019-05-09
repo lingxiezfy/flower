@@ -21,10 +21,6 @@ import com.ly.train.flower.common.serializer.Codec;
 import com.ly.train.flower.logging.Logger;
 import com.ly.train.flower.logging.LoggerFactory;
 
-/**
- * @author leeyazhou
- * 
- */
 public class CodecUtil {
   private static final Logger logger = LoggerFactory.getLogger(CodecUtil.class);
   private static final ConcurrentMap<String, Codec> codecCache = new ConcurrentHashMap<>();

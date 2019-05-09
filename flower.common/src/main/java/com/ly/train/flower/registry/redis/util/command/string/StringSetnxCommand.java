@@ -18,10 +18,6 @@ package com.ly.train.flower.registry.redis.util.command.string;
 import com.ly.train.flower.registry.redis.util.command.RedisCommand;
 import redis.clients.jedis.Jedis;
 
-/**
- * @author leeyazhou
- * 
- */
 public class StringSetnxCommand implements RedisCommand<Long> {
   private String key;
   private String value;

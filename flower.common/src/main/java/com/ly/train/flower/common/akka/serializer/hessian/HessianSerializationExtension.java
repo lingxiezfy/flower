@@ -21,10 +21,6 @@ import akka.actor.Extension;
 import akka.actor.ExtensionId;
 import akka.actor.ExtensionIdProvider;
 
-/**
- * @author leeyazhou
- * 
- */
 public class HessianSerializationExtension extends AbstractExtensionId<HessianSerializer> implements
     ExtensionIdProvider {
 

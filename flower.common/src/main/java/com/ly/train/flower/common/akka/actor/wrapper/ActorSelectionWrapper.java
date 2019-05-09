@@ -21,10 +21,6 @@ import com.ly.train.flower.logging.LoggerFactory;
 import akka.actor.ActorRef;
 import akka.actor.ActorSelection;
 
-/**
- * @author leeyazhou
- * 
- */
 public class ActorSelectionWrapper implements ActorWrapper {
   private static final Logger logger = LoggerFactory.getLogger(ActorSelectionWrapper.class);
   private final ActorSelection actorSelection;

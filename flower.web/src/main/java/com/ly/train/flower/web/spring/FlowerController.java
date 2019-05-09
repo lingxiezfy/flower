@@ -30,10 +30,6 @@ import com.ly.train.flower.common.service.container.ServiceFlow;
 import com.ly.train.flower.logging.Logger;
 import com.ly.train.flower.logging.LoggerFactory;
 
-/**
- * 
- * @author leeyazhou
- */
 public abstract class FlowerController implements InitializingBean {
   protected final Logger logger = LoggerFactory.getLogger(getClass());
   private FlowRouter flowRouter;

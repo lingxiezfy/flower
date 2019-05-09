@@ -17,8 +17,6 @@ package com.ly.train.flower.common.akka.actor.command;
 
 /**
  * 请求/响应
- * 
- * @author leeyazhou
  */
 public enum Type {
 

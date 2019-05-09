@@ -27,10 +27,6 @@ import com.ly.train.flower.common.service.container.lifecyle.Lifecycle;
 import com.ly.train.flower.config.FlowerConfig;
 import com.ly.train.flower.registry.Registry;
 
-/**
- * @author leeyazhou
- * 
- */
 public interface FlowerFactory extends Lifecycle {
 
 

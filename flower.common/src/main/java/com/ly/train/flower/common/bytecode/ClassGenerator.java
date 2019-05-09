@@ -61,11 +61,6 @@ import javassist.bytecode.annotation.MemberValue;
 import javassist.bytecode.annotation.ShortMemberValue;
 import javassist.bytecode.annotation.StringMemberValue;
 
-/**
- * 
- * @author leeyazhou
- * 
- */
 public final class ClassGenerator {
   private static final Logger logger = LoggerFactory.getLogger(ClassGenerator.class);
   private static final AtomicLong CLASS_NAME_COUNTER = new AtomicLong(0);

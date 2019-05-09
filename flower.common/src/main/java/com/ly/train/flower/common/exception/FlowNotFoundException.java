@@ -18,10 +18,6 @@
  */
 package com.ly.train.flower.common.exception;
 
-/**
- * @author leeyazhou
- * 
- */
 public class FlowNotFoundException extends RuntimeException {
 
   private static final long serialVersionUID = 1L;

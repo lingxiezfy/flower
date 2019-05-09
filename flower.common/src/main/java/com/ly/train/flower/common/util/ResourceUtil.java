@@ -31,8 +31,6 @@ import java.net.URLConnection;
  * <p>
  * edit from spring
  * 
- * @author leeyazhou
- * 
  */
 public abstract class ResourceUtil {
 

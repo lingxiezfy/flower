@@ -27,10 +27,6 @@ import com.ly.train.flower.common.service.Service;
 import com.ly.train.flower.common.service.container.ServiceContext;
 import com.ly.train.flower.common.service.web.Flush;
 
-/**
- * @author leeyazhou
- * 
- */
 @FlowerService
 public class ReturnService implements Service<Object, Object>, Flush, Complete {
 

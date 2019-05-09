@@ -30,10 +30,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import com.ly.train.flower.web.spring.context.FlowerComponentScan;
 
-/**
- * @author leeyazhou
- * 
- */
 @SpringBootApplication
 @EnableAutoConfiguration
 @ComponentScan("com.ly.train.flower.center")

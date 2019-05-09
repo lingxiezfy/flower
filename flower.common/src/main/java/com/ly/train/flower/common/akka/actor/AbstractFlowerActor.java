@@ -21,10 +21,6 @@ import com.ly.train.flower.logging.Logger;
 import com.ly.train.flower.logging.LoggerFactory;
 import akka.actor.AbstractActor;
 
-/**
- * @author leeyazhou
- * 
- */
 public abstract class AbstractFlowerActor extends AbstractActor {
   protected final Logger logger = LoggerFactory.getLogger(getClass());
 

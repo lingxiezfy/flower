@@ -25,10 +25,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import com.ly.train.flower.common.util.Constant;
 
-/**
- * @author leeyazhou
- * 
- */
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented

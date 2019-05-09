@@ -15,9 +15,6 @@
  */
 package com.ly.train.flower.common.util;
 
-/**
- * @author lee
- */
 public final class OSInfoUtil {
 
   private static String OS = System.getProperty("os.name").toLowerCase();

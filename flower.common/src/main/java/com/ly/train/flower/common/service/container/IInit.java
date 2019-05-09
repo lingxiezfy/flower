@@ -15,10 +15,6 @@
  */
 package com.ly.train.flower.common.service.container;
 
-/**
- * @author leeyazhou
- * 
- */
 public interface IInit {
 
 

@@ -21,11 +21,6 @@ import java.util.List;
 import com.ly.train.flower.common.annotation.FlowerType;
 import com.ly.train.flower.common.service.impl.AggregateService;
 
-/**
- * 
- * @author leeyazhou
- * 
- */
 public class ServiceMeta implements Serializable {
   private static final long serialVersionUID = 1L;
   private String serviceName;

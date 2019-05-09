@@ -27,10 +27,6 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 
-/**
- * @author leeyazhou
- * 
- */
 @Configuration
 public class FastJsonConfiguration implements WebMvcConfigurer {
 

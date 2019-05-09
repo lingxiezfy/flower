@@ -21,10 +21,6 @@ package com.ly.train.flower.container.loader;
 import java.net.URL;
 import java.net.URLClassLoader;
 
-/**
- * @author leeyazhou
- * 
- */
 public class BootstrapClassLoader extends URLClassLoader {
 
   public BootstrapClassLoader(URL[] urls) {

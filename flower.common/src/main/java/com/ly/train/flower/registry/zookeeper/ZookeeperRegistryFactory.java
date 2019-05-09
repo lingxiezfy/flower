@@ -22,10 +22,6 @@ import com.ly.train.flower.common.util.URL;
 import com.ly.train.flower.registry.Registry;
 import com.ly.train.flower.registry.RegistryFactory;
 
-/**
- * @author leeyazhou
- * 
- */
 public class ZookeeperRegistryFactory implements RegistryFactory {
 
 

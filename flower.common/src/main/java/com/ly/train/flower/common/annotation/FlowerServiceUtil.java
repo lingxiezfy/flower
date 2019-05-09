@@ -17,10 +17,6 @@ package com.ly.train.flower.common.annotation;
 
 import com.ly.train.flower.common.util.StringUtil;
 
-/**
- * @author leeyazhou
- * 
- */
 public class FlowerServiceUtil {
 
   public static String getServiceName(Class<?> clazz) {
