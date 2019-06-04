@@ -1,4 +1,4 @@
-# 反应式微服务框架Flower
+# <img src="docs/img/flowerlogo.png" height="50"/>反应式微服务框架Flower
 
 ![Build Status](https://travis-ci.org/zhihuili/flower.svg?branch=master)
 [![codecov](https://codecov.io/gh/zhihuili/flower/branch/master/graph/badge.svg)](https://codecov.io/gh/zhihuili/flower)
@@ -31,6 +31,15 @@ Flower是一个构建在Akka上的反应式微服务框架，开发者只需要�
 ## 参与开发
 
 欢迎你参与到Flower的开发中，[如何参与](CONTRIBUTING.md)?
+
+## [版本号](https://semver.org/lang/zh-CN/)
+
+版本格式：主版本号.次版本号.修订号，版本号递增规则如下：
+
++ 主版本号：做了不兼容的 API 修改，
++ 次版本号：做了向下兼容的功能性新增，
++ 修订号：做了向下兼容的问题修正。
+
 
 ## License
 
