@@ -15,7 +15,9 @@
  */
 package com.ly.train.flower.common.sample.programflow.model;
 
-public class MessageA {
+import java.io.Serializable;
+
+public class MessageA implements Serializable{
   private int i;
   private String s;
 
