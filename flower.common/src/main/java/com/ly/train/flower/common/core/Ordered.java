@@ -13,26 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/**
- * 
- */
-package com.ly.train.flower.filter.impl;
-
-import com.ly.train.flower.common.core.service.ServiceContext;
-import com.ly.train.flower.filter.AbstractFilter;
+package com.ly.train.flower.common.core;
 
 /**
  * @author leeyazhou
- * 
  */
-public class LoggingFilter extends AbstractFilter<Object, Object> {
+public interface Ordered {
 
-  @Override
-  public Object doFilter(Object message, ServiceContext context) {
-    logger.info("message : {}, context : {}", message, context);
-    return message;
-  }
-
-
-
+  int getOrder();
 }

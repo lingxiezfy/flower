@@ -18,6 +18,7 @@
  */
 package com.ly.train.flower.sample;
 
+import com.ly.train.flower.sample.condition.ConditionServiceSample;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
@@ -27,12 +28,10 @@ import org.junit.runners.Suite.SuiteClasses;
  * 
  */
 @RunWith(Suite.class)
-@SuiteClasses({com.ly.train.flower.sample.condition.CondtionServiceSample.class,
+@SuiteClasses({ConditionServiceSample.class,
     com.ly.train.flower.sample.programflow.Sample.class, com.ly.train.flower.sample.supervisor.Sample.class,
     com.ly.train.flower.sample.supervisor.BatchSample.class, com.ly.train.flower.sample.textflow.BatchSample.class,
-    com.ly.train.flower.sample.textflow.Sample.class, com.ly.train.flower.sample.textflow.ServiceRouterSample.class
-
-})
+    com.ly.train.flower.sample.textflow.Sample.class, com.ly.train.flower.sample.textflow.ServiceRouterSample.class})
 public class AllTests {
 
 }

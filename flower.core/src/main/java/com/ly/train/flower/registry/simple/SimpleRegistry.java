@@ -84,7 +84,7 @@ public class SimpleRegistry extends AbstractRegistry {
 
   @Override
   public boolean doRegister(ServiceInfo serviceInfo) {
-     logger.info("register serviceInfo : {}", serviceInfo);
+    logger.info("register serviceInfo : {}", serviceInfo);
     ServiceContext serviceContext = makeServiceContext(serviceInfo);
     serviceContext.setCurrentServiceName("ServiceInfoRegisterService");
     serviceContext.setSync(false);
@@ -106,15 +106,15 @@ public class SimpleRegistry extends AbstractRegistry {
     ServiceContext serviceContext = makeServiceContext(serviceInfo);
     serviceContext.setCurrentServiceName("ServiceInfoListService");
     serviceContext.setSync(false);
-    Object o = null;
+    Object obj = null;
     try {
-      o = serviceInfoListRouter.syncCallService(serviceContext);
+      obj = serviceInfoListRouter.syncCallService(serviceContext);
     } catch (TimeoutException e) {
       logger.error("", e);
     }
     List<ServiceInfo> ret2 = new ArrayList<ServiceInfo>();
-    if (o != null) {
-      Set<ServiceInfo> ret = (Set<ServiceInfo>) o;
+    if (obj != null) {
+      Set<ServiceInfo> ret = (Set<ServiceInfo>) obj;
       if (ret != null && !ret.isEmpty()) {
         ret2.addAll(ret);
       }
@@ -127,15 +127,15 @@ public class SimpleRegistry extends AbstractRegistry {
     ServiceContext serviceContext = makeServiceContext(serviceConfig);
     serviceContext.setCurrentServiceName("ServiceConfigListService");
     serviceContext.setSync(false);
-    Object o = null;
+    Object result = null;
     try {
-      o = serviceConfigListRouter.syncCallService(serviceContext);
+      result = serviceConfigListRouter.syncCallService(serviceContext);
     } catch (TimeoutException e) {
       logger.error("", e);
     }
     List<ServiceConfig> ret2 = new ArrayList<ServiceConfig>();
-    if (o != null) {
-      ServiceConfig ret = (ServiceConfig) o;
+    if (result != null) {
+      ServiceConfig ret = (ServiceConfig) result;
       if (ret != null) {
         ret2.add(ret);
       }
