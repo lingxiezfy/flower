@@ -50,6 +50,7 @@
         <module>flower.tools</module>
         <module>flower.config</module>
         <module>flower.boot.starter</module>
+        <module>flower.ddd</module>
     </modules>
     <scm>
         <connection>scm:git:git@github.com:${github.org}/${github.repo}.git</connection>
@@ -379,11 +380,21 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.0.0-M3</version>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jxr-plugin</artifactId>

@@ -18,7 +18,6 @@
  */
 package com.ly.train.flower.core.akka.router;
 
-import java.util.concurrent.TimeUnit;
 import org.junit.Assert;
 import org.junit.Test;
 import com.ly.train.flower.base.TestBase;
@@ -30,7 +29,6 @@ import com.ly.train.flower.base.service.user.UserServiceC2;
 import com.ly.train.flower.common.annotation.FlowerServiceUtil;
 import com.ly.train.flower.common.core.config.ServiceConfig;
 import com.ly.train.flower.common.core.service.ServiceContext;
-import com.ly.train.flower.core.akka.router.ServiceRouter;
 import com.ly.train.flower.core.service.container.ServiceFlow;
 import com.ly.train.flower.core.service.container.util.ServiceContextUtil;
 
@@ -43,7 +41,7 @@ public class ServiceRouterTest extends TestBase {
   private ServiceRouter serviceRouter;
 
 
-  private ServiceRouter getServiceRouter() {
+  private ServiceRouter getServiceRouter(String flowName) {
     if (serviceRouter != null) {
       return serviceRouter;
     }
@@ -57,11 +55,10 @@ public class ServiceRouterTest extends TestBase {
 
   @Test
   public void testSyncCallServiceSimple() throws Exception {
-
+    String flowName = getClass().getSimpleName() + "testSyncCallServiceSimple";
     ServiceFlow serviceFlow = serviceFactory.getOrCreateServiceFlow(flowName);
     serviceFlow.buildFlow(UserServiceA.class, UserServiceB.class);
     serviceFlow.buildFlow(UserServiceB.class, UserServiceC1.class);
-    serviceFlow.buildFlow(UserServiceB.class, UserServiceC2.class);
     serviceFlow.build();
 
 
@@ -72,12 +69,13 @@ public class ServiceRouterTest extends TestBase {
     ServiceContext serviceContext = ServiceContextUtil.context(user);
     serviceContext.setFlowName(flowName);
     serviceContext.setCurrentServiceName(FlowerServiceUtil.getServiceName(UserServiceA.class));
-    Object o = getServiceRouter().syncCallService(serviceContext);
+    Object o = getServiceRouter(flowName).syncCallService(serviceContext);
     System.out.println("响应结果： " + o);
   }
 
   @Test
   public void testAsyncCallServiceSimple() throws Exception {
+    String flowName = getClass().getSimpleName() + "testAsyncCallServiceSimple";
     ServiceFlow serviceFlow = serviceFactory.getOrCreateServiceFlow(flowName);
     serviceFlow.buildFlow(UserServiceA.class, UserServiceB.class);
     serviceFlow.buildFlow(UserServiceB.class, UserServiceC1.class);
@@ -90,19 +88,19 @@ public class ServiceRouterTest extends TestBase {
     ServiceContext serviceContext = ServiceContextUtil.context(user);
     serviceContext.setFlowName(flowName);
     serviceContext.setCurrentServiceName(FlowerServiceUtil.getServiceName(UserServiceA.class));
-    getServiceRouter().asyncCallService(serviceContext);
-    Thread.sleep(TimeUnit.SECONDS.toMillis(2));
+    getServiceRouter(flowName).asyncCallService(serviceContext);
   }
 
 
   @Test
   public void testSyncCallServiceMutliThread() throws Exception {
+    String flowName = getClass().getSimpleName() + "testSyncCallServiceMutliThread";
     ServiceFlow serviceFlow = serviceFactory.getOrCreateServiceFlow(flowName);
     serviceFlow.buildFlow(UserServiceA.class, UserServiceB.class);
     serviceFlow.buildFlow(UserServiceB.class, UserServiceC1.class);
 
-    final int threadNum = 100;
-    final int numPerThread = 100;
+    final int threadNum = 4;
+    final int numPerThread = 10;
     for (int i = 0; i < threadNum; i++) {
       final int temp = i;
       new Thread(() -> {
@@ -115,7 +113,7 @@ public class ServiceRouterTest extends TestBase {
             ServiceContext serviceContext = ServiceContextUtil.context(user);
             serviceContext.setCurrentServiceName(FlowerServiceUtil.getServiceName(UserServiceA.class));
             serviceContext.setFlowName(flowName);
-            User o = (User) getServiceRouter().syncCallService(serviceContext);
+            User o = (User) getServiceRouter(flowName).syncCallService(serviceContext);
 
             Assert.assertEquals(name, o.getName());
           } catch (Exception e) {
@@ -124,11 +122,11 @@ public class ServiceRouterTest extends TestBase {
         }
       }).start();
     }
-    Thread.sleep(TimeUnit.SECONDS.toMillis(5));
   }
 
   @Test
   public void testAsyncCallServiceMutliThread() throws Exception {
+    String flowName = getClass().getSimpleName() + "testAsyncCallServiceMutliThread";
     ServiceFlow serviceFlow = serviceFactory.getOrCreateServiceFlow(flowName);
     serviceFlow.buildFlow(UserServiceA.class, UserServiceB.class);
     serviceFlow.buildFlow(UserServiceB.class, UserServiceC1.class);
@@ -146,13 +144,12 @@ public class ServiceRouterTest extends TestBase {
             ServiceContext serviceContext = ServiceContextUtil.context(user);
             serviceContext.setFlowName(flowName);
             serviceContext.setCurrentServiceName(FlowerServiceUtil.getServiceName(UserServiceA.class));
-            getServiceRouter().asyncCallService(serviceContext);
+            getServiceRouter(flowName).asyncCallService(serviceContext);
           } catch (Exception e) {
             e.printStackTrace();
           }
         }
       }).start();
     }
-    Thread.sleep(TimeUnit.SECONDS.toMillis(5));
   }
 }
