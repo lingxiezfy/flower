@@ -27,6 +27,8 @@ import com.ly.train.flower.config.FlowerConfig;
 import com.ly.train.flower.core.akka.actor.ServiceActor;
 import com.ly.train.flower.core.akka.actor.SupervisorActor;
 import com.ly.train.flower.core.akka.actor.command.ActorContextCommand;
+import com.ly.train.flower.core.akka.extension.FlowerExtension;
+import com.ly.train.flower.core.akka.extension.FlowerExtensionConfiguration;
 import com.ly.train.flower.core.service.container.FlowerFactory;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
@@ -61,21 +63,21 @@ public class FlowerActorSystem extends AbstractLifecycle {
   public static final Long DEFAULT_TIMEOUT = 3000L;
   public static final Duration timeout = Duration.create(DEFAULT_TIMEOUT, TimeUnit.MILLISECONDS);
 
-  private final FlowerConfig flowerConfig;
+  private FlowerConfig flowerConfig;
   private final ActorFactory actorFactory;
   private volatile ActorSystem actorSystem;
   private volatile ActorContext actorContext;
   private volatile FlowerFactory flowerFactory;
+  private Config actorSystemConfig;
 
-  public FlowerActorSystem(FlowerConfig flowerConfig, ActorFactory actorFactory, FlowerFactory flowerFactory) {
-    this.flowerConfig = flowerConfig;
+  public FlowerActorSystem(ActorFactory actorFactory, FlowerFactory flowerFactory) {
     this.actorFactory = actorFactory;
-    this.actorSystem = initActorSystem();
-    initActorContext();
     this.flowerFactory = flowerFactory;
   }
 
-  private ActorSystem initActorSystem() {
+  @Override
+  protected void doInit() {
+    this.flowerConfig = flowerFactory.getFlowerConfig();
     Properties properties = new Properties();
     if (StringUtil.isNotBlank(flowerConfig.getHost())) {
       properties.put("akka.actor.provider", "remote");
@@ -88,8 +90,12 @@ public class FlowerActorSystem extends AbstractLifecycle {
     properties.put("dispatcher.fork-join-executor.parallelism-max", flowerConfig.getParallelismMax());
     properties.put("dispatcher.fork-join-executor.parallelism-factor", flowerConfig.getParallelismFactor());
     logger.info("akka config ：{}", properties);
-    Config config = ConfigFactory.parseProperties(properties).withFallback(ConfigFactory.load());
-    ActorSystem actorSystem = ActorSystem.create(actorSystemName, config);
+    this.actorSystemConfig = ConfigFactory.parseProperties(properties).withFallback(ConfigFactory.load());
+  }
+
+  @Override
+  protected void doStart() {
+    this.actorSystem = ActorSystem.create(actorSystemName, actorSystemConfig);
     Runtime.getRuntime().addShutdownHook(new Thread() {
       @Override
       public void run() {
@@ -100,7 +106,7 @@ public class FlowerActorSystem extends AbstractLifecycle {
         }
       }
     });
-    return actorSystem;
+    initActorContext();
   }
 
   private void initActorContext() {
@@ -147,12 +153,13 @@ public class FlowerActorSystem extends AbstractLifecycle {
     return String.format(supervisorActorPathFormat, actorSystemName, host, port);
   }
 
-  @Override
-  protected void doStart() {}
+  public FlowerExtension getConfigurationExtension() {
+    return FlowerExtensionConfiguration.getFlowerExtension(actorSystem);
+  }
 
   @Override
   protected void doStop() {
-    logger.info("stop flower, config : {}", flowerConfig);
+    logger.info("Stop flower, config : {}", flowerConfig);
     this.actorSystem.terminate();
   }
 }
