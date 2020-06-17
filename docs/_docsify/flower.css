@@ -1,0 +1,53 @@
+/**
+ * Copyright © 2019 同程艺龙 (zhihui.li@ly.com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+a {
+    text-decoration: none;
+}
+
+h2 {
+    counter-increment: counter_h2;
+    counter-reset: counter_h3;
+}
+
+h2::before {
+    content: counter(counter_h2) '. ';
+}
+
+h3 {
+    counter-increment: counter_h3;
+    counter-reset: counter_h4;
+}
+
+h3::before {
+    content: counter(counter_h2) '.' counter(counter_h3) ' ';
+}
+
+h4 {
+    counter-increment: counter_h4;
+}
+
+h4::before {
+    content: counter(counter_h2) '.' counter(counter_h3) '.' counter(counter_h4) ' ';
+}
+
+aside.nav > div.page_toc > ul > li > ul > li {
+    counter-increment: counter_li_1;
+    /*counter-reset: counter_li_1;*/
+}
+
+aside.nav > div.page_toc > ul > li > ul > li > a ::before {
+    content: counter(counter_li_1) '. ';
+}

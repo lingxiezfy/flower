@@ -1,10 +1,20 @@
-# Flower反应式编程Quick Start
+# 快速上手
 
 Flower框架的主要元素包括：Flower Service（服务）、Flower 流程和Flow容器。Service实现一个细粒度的服务功能，Service之间通过Message关联，前一个Service的返回值（Message），必须是后一个Service的输入参数（Message），Service按照业务逻辑编辑成一个Flow（流程），Flower容器负责将前一个Service的返回消息，传递给后一个Service。
 
-### 安装
+## 系统要求
 
-Maven
+Flower要求Java 8作为基础。如果使用servlet开发，最低要求是servlet 3.1+，才能支持异步请求。在开始前，最好确认当前安装的JDK版本号是否符合要求。
+
+```shell script
+$ java -version
+```
+
+## 安装
+
+Flower当前最新发布版本是1.0.3。
+
+### Maven
 
 ```xml
 <dependency>
@@ -14,25 +24,25 @@ Maven
 </dependency>
 ```
 
-Gradle
+### Gradle
 
 ```text
 compile group: 'com.ly.train', name: 'flower.core', version: 'A.B.C'
 ```
 
-SBT
+### SBT
 
 ```text
 libraryDependencies += "com.ly.train" % "flower.core" % "A.B.C"
 ```
 
-Ivy
+### Ivy
 
 ```xml
 <dependency org="com.ly.train" name="flower.core" rev="A.B.C"/>
 ```
 
-### Flower初始化
+## Flower初始化
 
 Flower使用前需要进行初始化，这里演示最简单的方式。
 
@@ -42,7 +52,7 @@ Flower初始化
  FlowerFactory flowerFactory = new SimpleFlowerFactory();
 ```
 
-### 定义Flower服务
+## 定义Flower服务
 
 开发Service类必须实现Flower框架的Service接口或者继承AbstractService基类，在process方法内完成服务业务逻辑处理。
 
@@ -94,11 +104,11 @@ public class UserServiceC1 implements Service<User, User> {
 }
 ```
 
-### 服务注册
+## 服务注册
 
 Flower提供两种服务注册方式：配置文件方式和编程方式。
 
-- 编程方式
+### 编程方式
 
 ```java
  ServiceFactory serviceFactory = flowerFactory.getServiceFactory();
@@ -107,7 +117,7 @@ Flower提供两种服务注册方式：配置文件方式和编程方式。
  serviceFactory.registerService(UserServiceC1.class.getSimpleName(), UserServiceC1.class);
 ```
 
-- 配置文件方式
+### 配置文件方式
 服务定义配置文件扩展名: .services，放在classpath下，Flower框架自动加载注册。
 flower_test.services
 
@@ -117,7 +127,7 @@ UserServiceB = com.ly.train.flower.base.service.user.UserServiceB
 UserServiceC1 = com.ly.train.flower.base.service.user.UserServiceC1
 ```
 
-### 服务流程编排
+## 服务流程编排
 
 Flower框架提供两种服务流程编排方式：配置文件方式和编程方式。
 
@@ -127,7 +137,7 @@ Flower框架提供两种服务流程编排方式：配置文件方式和编程�
 UserServiceA -> UserServiceB -> UserServiceC1
 ```
 
-- 编程方式编排流程
+### 编程方式编排流程
 
 ```java
 // UserServiceA -> UserServiceB -> UserServiceC1
@@ -138,7 +148,7 @@ serviceFlow.buildFlow(UserServiceB.class, UserServiceC1.class);
 serviceFlow.build();
 ```
 
-- 配置文件方式编排流程
+### 配置文件方式编排流程
 流程配置文件扩展名: .flow，放在classpath下，Flower框架自动加载编排流程。
 flower_test.flow
 
@@ -147,7 +157,7 @@ UserServiceA -> UserServiceB
 UserServiceB -> UserServiceC1
 ```
 
-### 调用Flower流程
+## 调用Flower流程
 
 前面定义了3个Flower服务，并编排了名称为flower_test的服务流程。那么怎么使用它呢？
 
@@ -168,7 +178,7 @@ final FlowRouter flowRouter = flowerFactory.buildFlowRouter(flowName, 16);
 flowRouter.asyncCallService(user);
 ```
 
-### 完整示例
+## 完整示例
 
 ```java
     FlowerFactory flowerFactory = new SimpleFlowerFactory();
@@ -195,7 +205,7 @@ flowRouter.asyncCallService(user);
     flowRouter.asyncCallService(user);
 ```
 
-### 运行结果
+## 运行结果
 
 ```text
 2019-07-11 15:13:19.739 [main] INFO  c.ly.train.flower.config.parser.FlowerConfigParser - parse FlowerConfig, configLocation : flower.yml
